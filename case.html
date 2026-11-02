@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudo de caso — s1za</title>
+<link rel="icon" href="assets/fotos/logo2.png">
+<link rel="stylesheet" href="case.css"> 
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header><a class="px" href="index.html" style="font-size:14px">← s1za<b style="color:var(--brown)">_</b></a><a class="btn" id="wa" href="#" style="padding:8px 14px">Contato</a></header>
+<main id="m"></main>
+<script src="data.js"></script>
+<script>if(!window.SITE){/* ===== DADOS DO SITE — edite aqui ===== */
+window.SITE={
+ wa:'5579996567063',
+ // vídeos dos trilhos: s = nome do arquivo em assets/videos (sem .mp4) e assets/posters (.webp)
+ r1:[{s:'neymar',t:'Neymar'},{s:'bb',t:'B.B'},{s:'yamal',t:'Yamal'},{s:'cultura-sul',t:'Cultura do Sul'}],
+ r2:[{s:'gojo',t:'Gojo'},{s:'messi',t:'Messi'},{s:'sasuke',t:'Sasuke'},{s:'halloween',t:'Halloween'}],
+ // projetos em destaque do GitHub (cada um ganha uma página: case.html?id=...)
+ proj:[
+  {id:'projeto-1',n:'Nome do programa 1',d:'Descrição curta do que o programa faz e a tecnologia usada.',img:'assets/projetos/p1.webp',vid:'assets/projetos/p1.mp4',url:'https://github.com/s1zaDv',tec:['HTML','CSS','JavaScript'],
+   problema:'Qual problema este programa resolve? Escreva aqui o contexto e a necessidade.',
+   solucao:'Como você resolveu? Descreva as decisões, as ferramentas e a lógica principal.',
+   resultado:'O que mudou depois? Métricas, feedback ou o que você aprendeu.'},
+  {id:'projeto-2',n:'Nome do programa 2',d:'Descrição curta do que o programa faz e a tecnologia usada.',img:'assets/projetos/p2.webp',vid:'assets/projetos/p2.mp4',url:'https://github.com/s1zaDv',tec:['JavaScript','JSON'],
+   problema:'Descreva o problema.',solucao:'Descreva a solução.',resultado:'Descreva o resultado.'},
+  {id:'projeto-3',n:'Nome do programa 3',d:'Descrição curta do que o programa faz e a tecnologia usada.',img:'assets/projetos/p3.webp',vid:'assets/projetos/p3.mp4',url:'https://github.com/s1zaDv',tec:['SQL','Python'],
+   problema:'Descreva o problema.',solucao:'Descreva a solução.',resultado:'Descreva o resultado.'}],
+ // pacotes de serviço (prazos e itens são sugestões: ajuste ao seu jeito)
+ pack:[
+  {n:'Landing page',itens:['1 página responsiva e animada','Design no Figma','Botão/formulário de contato','Publicação online'],prazo:'3 a 5 dias',preco:'Sob consulta'},
+  {n:'Site completo',itens:['Até 5 seções ou páginas','Identidade visual aplicada','Animações e interações','Velocidade e SEO básico'],prazo:'1 a 2 semanas',preco:'Sob consulta',top:1},
+  {n:'Edição de vídeo',itens:['Cortes com ritmo e impacto','Legendas, efeitos e trilha','Correção de cor','1 revisão inclusa'],prazo:'2 a 4 dias',preco:'Sob consulta'}]
+};
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const P=SITE.proj,id=new URLSearchParams(location.search).get('id'),i=Math.max(0,P.findIndex(p=>p.id===id)),p=P[i];
+document.title=p.n+' — Estudo de caso | s1za';
+document.getElementById('wa').href=`https://wa.me/${SITE.wa}`;
+document.getElementById('m').innerHTML=`<span class="px" style="font-size:10px;color:var(--brown)">ESTUDO DE CASO ${String(i+1).padStart(2,'0')}</span><h1>${p.n}</h1><p class="lead">${p.d}</p>
+<div class="tec px">${p.tec.map(t=>`<span>${t}</span>`).join('')}</div>
+<a class="btn" href="${p.url}" target="_blank" rel="noopener">Ver código no GitHub</a>
+<div class="media"><img src="${p.img}" alt="" onerror="this.remove()"><video src="${p.vid}" autoplay muted loop playsinline controls onerror="this.remove()"></video></div>
+<div class="steps"><div class="st"><h2 class="px">01 · Problema</h2><p>${p.problema}</p></div><div class="st"><h2 class="px">02 · Solução</h2><p>${p.solucao}</p></div><div class="st"><h2 class="px">03 · Resultado</h2><p>${p.resultado}</p></div></div>
+<div class="nav"><a class="btn dark" href="case.html?id=${P[(i+P.length-1)%P.length].id}">← Anterior</a><a class="btn" href="index.html#gps">Todos os projetos</a><a class="btn dark" href="case.html?id=${P[(i+1)%P.length].id}">Próximo →</a></div>`;
+document.querySelectorAll('.st').forEach((e,k)=>gsap.from(e,{y:60,rotation:k%2?2:-2,opacity:0,duration:.6,delay:.2+k*.15,ease:'steps(6)'}));
+requestAnimationFrame(()=>document.body.classList.add('ready'));
+</script>
+</body>
+</html>

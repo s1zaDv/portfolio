@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeria de Design — s1za</title>
+<meta property="og:title" content="Galeria de Design — s1za"><meta property="og:image" content="https://s1zadv.github.io/portfolio/assets/og.jpg">
+<link rel="icon" href="assets/fotos/logo2.png">
+<link rel="stylesheet" href="galeria.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header><a class="px" href="index.html" style="font-size:14px">← s1za<b style="color:var(--brown)">_</b></a><a class="btn" href="https://wa.me/5579996567063">Contato</a></header>
+<main>
+  <h1>Galeria de <span>design</span></h1>
+  <p class="px" style="font-size:10px;line-height:1.8">Publicidade comercial • Institucional / branding • Mais em breve</p>
+  <div class="filters" id="f"></div>
+  <div class="grid" id="g"></div>
+</main>
+<div id="lb"><div style="text-align:center"><div id="lbi"></div><p class="px" id="lbt"></p></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+/* EDITE AQUI: adicione seus designs (src = caminho da imagem, h = altura do placeholder) */
+const D=[
+ {t:'Gourmet Burger',c:'Publicidade comercial',src:'assets/fotos/design1.webp',alt:'assets/fotos/Design1.png',h:260},
+ {t:'Barber Shop',c:'Institucional / branding',src:'assets/fotos/design2.webp',alt:'assets/fotos/Design2.png',h:200}];
+const cats=['Todos',...new Set(D.map(d=>d.c))];
+const g=document.getElementById('g'),f=document.getElementById('f');
+function render(c){g.innerHTML=D.filter(d=>c==='Todos'||d.c===c).map(d=>`<article class="it" data-t="${d.t} — ${d.c}"><img class="im" src="${d.src}" alt="${d.t}" loading="lazy" style="min-height:${d.h*2}px" data-alt="${d.alt||''}" onerror="if(this.dataset.alt&&!this._f){this._f=1;this.src=this.dataset.alt}else{this.removeAttribute('src')}"><div class="cap"><span>${d.t}</span><small>${d.c}</small></div></article>`).join('');
+ gsap.from('.it',{y:60,rotation:()=>gsap.utils.random(-4,4),opacity:0,stagger:.08,ease:'steps(6)',scrollTrigger:{trigger:g,start:'top 90%'}});
+ g.querySelectorAll('.it').forEach(e=>e.onclick=()=>{const im=e.querySelector('img');document.getElementById('lbi').innerHTML=im.getAttribute('src')?`<img src="${im.src}">`:`<div class="ph" style="width:min(600px,90vw);height:50vh;background:repeating-conic-gradient(#915626 0 25%,#3b2210 0 50%) 0 0/24px 24px"></div>`;document.getElementById('lbt').textContent=e.dataset.t;document.getElementById('lb').classList.add('on')})}
+f.innerHTML=cats.map((c,i)=>`<button class="btn ${i?'':'on'}">${c}</button>`).join('');
+f.querySelectorAll('button').forEach(b=>b.onclick=()=>{f.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render(b.textContent)});
+document.getElementById('lb').onclick=e=>{if(e.target.tagName!=='IMG')e.currentTarget.classList.remove('on')};
+render('Todos');requestAnimationFrame(()=>document.body.classList.add('ready'));
+</script>
+</body>
+</html>

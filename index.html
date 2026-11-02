@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>s1za Portfolio</title>
+<meta name="description" content="Portfólio de s1za: front-end, edição de vídeo, design e landing pages. Se pode ser imaginado, pode ser programado.">
+<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="s1za Portfolio"><meta property="og:description" content="Front-end, edição de vídeo e design. Se pode ser imaginado, pode ser programado.">
+<meta property="og:url" content="https://s1zadv.github.io/portfolio/"><meta property="og:image" content="https://s1zadv.github.io/portfolio/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://s1zadv.github.io/portfolio/assets/og.jpg">
+<meta name="theme-color" content="#915626">
+<link rel="icon" href="assets/fotos/logo2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+/* planos B: se o arquivo novo (.webp / slug) não existir no repositório, usa o original */
+var FBI={'especialidades1.webp':'especialidades1.png','especialidades2.webp':'especialidades2.png','especialidades3.webp':'especialidades3.png','especialidades4.webp':'especialidades4.png','especialidades5.webp':'especialidades5.png','design1.webp':'Design1.png','design2.webp':'Design2.png','fundo.webp':'fundo_D.png','insta.webp':'insta_d.png','avatar.webp':'my-ft.png','tiktok.webp':'tiktok_d.png','eu.webp':'minhafoto.png','logo-completa.webp':'logo-completa.png'};
+var FBV={'neymar':'Neymar Edit','bb':'b.b edit','yamal':'yamal edit','cultura-sul':'Video sobre a Cultura do Sul','gojo':'Gojo Edit','messi':'Messi edit','sasuke':'sasuke Edit','halloween':'Video sobre o Hallowen','tutorial':'tutorial'};
+function fb(el){if(el._f)return;el._f=1;var n=decodeURIComponent(el.src.split('/').pop().split('?')[0]);if(FBI[n])el.src='assets/fotos/'+FBI[n]}
+function fbv(el){if(el._f)return;el._f=1;var n=el.src.split('/').pop().replace('.mp4','');if(FBV[n])el.src='assets/videos/'+encodeURI(FBV[n])+'.mp4'}
+function probe(a,b,cb){var i=new Image();i.onload=function(){cb(a)};i.onerror=function(){cb(b)};i.src=a}
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="code" viewBox="0 0 24 24"><path d="M7 6h2v2H7zM5 8h2v2H5zM3 10h2v4H3zM5 14h2v2H5zM7 16h2v2H7zM15 6h2v2h-2zM17 8h2v2h-2zM19 10h2v4h-2zM17 14h2v2h-2zM15 16h2v2h-2zM13 5h2v4h-2zM11 10h2v4h-2zM9 15h2v4H9z"/></symbol>
+<symbol id="film" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3 4h18v16H3zM5 6v2h2V6zM5 10v2h2v-2zM5 14v2h2v-2zM5 18v-1h2v1zM17 6v2h2V6zM17 10v2h2v-2zM17 14v2h2v-2zM9 7v10h6V7z"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><path d="M10 2h4v4h-4zM4 8h16v2h-6v4l2 8h-2l-2-6-2 6H8l2-8v-4H4z"/></symbol>
+<symbol id="db" viewBox="0 0 24 24"><path d="M5 3h14v5H5zM5 10h14v5H5zM5 17h14v5H5z"/></symbol>
+<symbol id="grid" viewBox="0 0 24 24"><path d="M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z"/></symbol>
+<symbol id="git" viewBox="0 0 24 24"><path d="M5 3h4v4H5zM6 7h2v10H6zM5 17h4v4H5zM15 8h4v4h-4zM16 12h2v2l-2 2h-4l-4 3v-3l3-2h3z"/></symbol>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M3 11h13V8h2v2h2v2h-2v2h-2v-2H3zM16 5h2v3h-2zM16 16h2v3h-2z"/></symbol>
+<symbol id="play" viewBox="0 0 24 24"><path d="M6 3h3v18H6zM9 5h3v14H9zM12 7h3v10h-3zM15 9h3v6h-3z"/></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="M10 2h4v6h6v4h-6v2l4 8h-4l-2-4-2 4H6l4-8v-2H4V8h6z"/></symbol>
+</defs></svg>
+<div id="cur"><i></i></div>
+
+<div id="ld"><div class="cols" id="cols"></div><div class="in"><canvas id="lcat" width="16" height="10"></canvas><div class="px" style="font-size:14px">CARREGANDO<span id="dots"></span></div><div class="bar"><i id="lb"></i></div><div class="px" id="lp" style="font-size:12px">0%</div></div></div>
+
+<header>
+  <a class="logo px" href="#top">s1za<b>_</b></a>
+  <nav><a href="#esp">Especialidades</a><a href="#proj">Edições</a><a href="#gps">Projetos</a><a href="#serv">Serviços</a><a href="galeria.html">Galeria</a><a href="#sobre">Sobre mim</a></nav>
+  <div class="hbtn"><a class="btn" href="#" data-wa style="padding:8px 14px">Contato</a><button class="burger" id="bg" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</header>
+<div id="mn"><a href="#esp">Especialidades</a><a href="#proj">Edições</a><a href="#gps">Projetos</a><a href="#serv">Serviços</a><a href="galeria.html">Galeria</a><a href="#sobre">Sobre mim</a><a href="#" data-wa>Chamar no WhatsApp</a></div>
+
+<main id="top">
+<div class="hero" data-bg="#f3e9d6" data-fg="#0d0a07">
+  <div>
+    <h1 class="k" id="kin">Se pode ser <span class="hl">imaginado,</span> pode ser programado.</h1>
+    <p>Preparado para transformar sua ideia em realidade digital? Com inovação e precisão, cada linha de código é um passo rumo ao seu sucesso. Vamos criar algo incrível juntos!</p>
+    <a class="btn" href="https://discord.gg/6vW6jZ8z2d">Comunidade no Discord <svg class="i"><use href="#arrow"/></svg></a>
+  </div>
+  <div class="stage"><canvas id="cv" width="96" height="96"></canvas><div class="tag px">&lt;/&gt; PIXEL.LAB</div>
+    <div class="o3"><canvas data-k="cube" width="128" height="128"></canvas></div></div>
+</div>
+
+<div class="tkw"><div class="ticker"><div class="px" id="tk"></div></div></div>
+
+<section id="esp" class="hs" data-bg="#e6c79c" data-fg="#0d0a07">
+  <div class="htrack" id="ht">
+    <div class="hhead"><h2 class="t">Minhas <span>especialidades!</span></h2><p class="mono dk">role → para o lado</p></div>
+    <div class="card"><div class="im"><img src="assets/fotos/especialidades1.webp" alt="Front-End" onerror="fb(this)"></div><div class="tx"><span class="num px">01</span><div class="row"><div class="ico"><svg class="i"><use href="#code"/></svg></div><h3>Front-End</h3></div><p>HTML, CSS e JavaScript aplicados com foco em qualidade e clareza.</p></div></div>
+    <div class="card"><div class="im"><img src="assets/fotos/especialidades2.webp" alt="Edição de vídeo" onerror="fb(this)"></div><div class="tx"><span class="num px">02</span><div class="row"><div class="ico"><svg class="i"><use href="#film"/></svg></div><h3>Edição de vídeo</h3></div><p>Edição dinâmica e envolvente, com foco em ritmo, impacto visual e narrativa.</p></div></div>
+    <div class="card"><div class="im"><img src="assets/fotos/especialidades3.webp" alt="Acessível" onerror="fb(this)"></div><div class="tx"><span class="num px">03</span><div class="row"><div class="ico"><svg class="i"><use href="#user"/></svg></div><h3>Acessível</h3></div><p>Comunicação clara e aberta, sempre pronto pra ajudar.</p></div></div>
+    <div class="card"><div class="im"><img src="assets/fotos/especialidades4.webp" alt="Banco de Dados" onerror="fb(this)"></div><div class="tx"><span class="num px">04</span><div class="row"><div class="ico"><svg class="i"><use href="#db"/></svg></div><h3>Banco de Dados</h3></div><p>SQL e JSON aplicados com organização, clareza e estrutura de dados.</p></div></div>
+    <div class="card"><div class="im"><img src="assets/fotos/especialidades5.webp" alt="Landing page" onerror="fb(this)"></div><div class="tx"><span class="num px">05</span><div class="row"><div class="ico"><svg class="i"><use href="#grid"/></svg></div><h3>Landing page</h3></div><p>Criação de landing pages no Figma com clareza, estratégia e conversão.</p></div></div>
+  </div>
+</section>
+
+<section id="proj" data-bg="#f3e9d6" data-fg="#0d0a07"><div class="wrap">
+  <h2 class="t rv">Minhas <span>edições</span></h2>
+  <a class="link" href="https://www.tiktok.com/@s1zapjl">Ver no TikTok <svg class="i"><use href="#arrow"/></svg></a>
+  <div class="rail"><div class="track" id="tr1"></div></div>
+  <div class="rail"><div class="track" id="tr2"></div></div>
+  <h2 class="t rv" style="margin-top:80px">Meus <span>designs</span></h2>
+  <a class="link" href="galeria.html">Abrir galeria <svg class="i"><use href="#arrow"/></svg></a>
+  <div class="panes">
+    <div class="pane bgi" data-d="1"><h3>Publicidade comercial</h3><p>Comunicação estratégica voltada para atrair, convencer e gerar ação.</p></div>
+    <div class="pane bgi" data-d="2"><h3>Institucional / branding</h3><p>Identidade que transforma serviço em experiência e presença de marca.</p></div>
+    <div class="pane"><h3>Aguardando</h3><p class="mono">Em processo de criação</p></div>
+    <div class="pane"><h3>Aguardando</h3><p class="mono">Em processo de criação</p></div>
+  </div>
+</div></section>
+
+<section id="gps" data-bg="#0d0a07" data-fg="#f3e9d6"><div class="wrap" style="position:relative">
+  <div class="gh2"><div>
+    <h2 class="t rv">Projetos em <span>destaque</span></h2>
+  <p class="mono">Programas do meu GitHub — passe o mouse para ver rodando.</p></div><div class="o3 in"><canvas data-k="oct" width="128" height="128"></canvas></div></div>
+  <div class="gps" id="gpl"></div>
+</div></section>
+
+<section id="serv" data-bg="#e6c79c" data-fg="#0d0a07"><div class="wrap">
+  <h2 class="t rv">Serviços e <span>pacotes</span></h2>
+  <div class="pk" id="pk"></div>
+  <a class="wabig px" href="#" data-wa><svg class="i"><use href="#arrow"/></svg><span style="font-family:'Space Grotesk';letter-spacing:-1px">Pedir orçamento no WhatsApp</span></a>
+</div></section>
+
+<section data-bg="#f3e9d6" data-fg="#0d0a07"><div class="wrap">
+  <div class="redes"><a href="https://www.youtube.com/@s1zaDEV">YOUTUBE <svg class="i"><use href="#arrow"/></svg></a><a href="https://www.instagram.com/s1zacodes">INSTAGRAM <svg class="i"><use href="#arrow"/></svg></a></div>
+</div></section>
+
+<section id="sobre" data-bg="#915626" data-fg="#ffffff">
+  <div class="bgtxt px" aria-hidden="true">SOBRE MIM ★ SOBRE MIM ★ SOBRE MIM ★ SOBRE MIM ★</div>
+  <div class="sb">
+  <div class="c">
+    <h2 id="sob">Sobre mim</h2>
+    <div class="imgs"><a href="https://www.instagram.com/s1zacodes" target="_blank" rel="noopener"><img src="assets/fotos/insta.webp" alt="Instagram @s1zacodes" onerror="fb(this)"></a><a href="https://github.com/s1zaDv" target="_blank" rel="noopener"><img src="assets/fotos/avatar.webp" alt="GitHub s1zaDv" onerror="fb(this)"></a><a href="https://www.tiktok.com/@s1zapjl" target="_blank" rel="noopener"><img src="assets/fotos/tiktok.webp" alt="TikTok @s1zapjl" onerror="fb(this)"></a></div>
+    <div class="tags px"><span>HTML/CSS/JS</span><span>SQL+JSON</span><span>FIGMA</span><span>EDIÇÃO</span></div>
+    <p class="mono" style="margin-bottom:22px">Descubra mais sobre mim!</p>
+    <button class="btn dark" id="open">Continuar <svg class="i"><use href="#arrow"/></svg></button>
+  </div>
+  <div class="side"><div class="o3"><canvas data-k="cluster" width="128" height="128"></canvas></div><img class="me" src="assets/fotos/eu.webp" alt="s1za" onerror="fb(this)"></div>
+  </div>
+</section>
+</main>
+
+<div id="catw"><div id="bub" class="px"></div><div id="zz" class="px">Z z z</div><canvas id="cat" width="16" height="10"></canvas></div>
+<button id="gh" aria-label="GitHub"><svg class="i"><use href="#git"/></svg></button>
+<button id="snd" class="px" aria-pressed="false" aria-label="Som 8-bit">SOM: OFF</button>
+<div id="tut"><div><p class="px" style="font-size:11px;line-height:1.7">Tutorial</p><video id="tv" src="assets/videos/tutorial.mp4" controls playsinline preload="none" onerror="fbv(this)"></video><button class="btn dark" id="tx">Fechar</button></div></div>
+<div id="pop"><div><img onerror="fb(this)" src="assets/fotos/logo-completa.webp" alt="Foto de perfil"><p class="px" style="font-size:11px;line-height:1.7;margin-bottom:18px">Venha ver meus projetos no GitHub!</p><a class="btn" href="https://github.com/s1zaDv" target="_blank" rel="noopener">Visitar GitHub</a></div></div>
+<footer class="px">© s1za — se pode ser imaginado, pode ser programado.<br><br><span style="opacity:.6">dica: digite "gato"</span></footer>
+
+<script src="data.js"></script>
+<script>if(!window.SITE){/* ===== DADOS DO SITE — edite aqui ===== */
+window.SITE={
+ wa:'5579996567063',
+ // vídeos dos trilhos: s = nome do arquivo em assets/videos (sem .mp4) e assets/posters (.webp)
+ r1:[{s:'neymar',t:'Neymar'},{s:'bb',t:'B.B'},{s:'yamal',t:'Yamal'},{s:'cultura-sul',t:'Cultura do Sul'}],
+ r2:[{s:'gojo',t:'Gojo'},{s:'messi',t:'Messi'},{s:'sasuke',t:'Sasuke'},{s:'halloween',t:'Halloween'}],
+ // projetos em destaque do GitHub (cada um ganha uma página: case.html?id=...)
+ proj:[
+  {id:'projeto-1',n:'Nome do programa 1',d:'Descrição curta do que o programa faz e a tecnologia usada.',img:'assets/projetos/p1.webp',vid:'assets/projetos/p1.mp4',url:'https://github.com/s1zaDv',tec:['HTML','CSS','JavaScript'],
+   problema:'Qual problema este programa resolve? Escreva aqui o contexto e a necessidade.',
+   solucao:'Como você resolveu? Descreva as decisões, as ferramentas e a lógica principal.',
+   resultado:'O que mudou depois? Métricas, feedback ou o que você aprendeu.'},
+  {id:'projeto-2',n:'Nome do programa 2',d:'Descrição curta do que o programa faz e a tecnologia usada.',img:'assets/projetos/p2.webp',vid:'assets/projetos/p2.mp4',url:'https://github.com/s1zaDv',tec:['JavaScript','JSON'],
+   problema:'Descreva o problema.',solucao:'Descreva a solução.',resultado:'Descreva o resultado.'},
+  {id:'projeto-3',n:'Nome do programa 3',d:'Descrição curta do que o programa faz e a tecnologia usada.',img:'assets/projetos/p3.webp',vid:'assets/projetos/p3.mp4',url:'https://github.com/s1zaDv',tec:['SQL','Python'],
+   problema:'Descreva o problema.',solucao:'Descreva a solução.',resultado:'Descreva o resultado.'}],
+ // pacotes de serviço (prazos e itens são sugestões: ajuste ao seu jeito)
+ pack:[
+  {n:'Landing page',itens:['1 página responsiva e animada','Design no Figma','Botão/formulário de contato','Publicação online'],prazo:'3 a 5 dias',preco:'Sob consulta'},
+  {n:'Site completo',itens:['Até 5 seções ou páginas','Identidade visual aplicada','Animações e interações','Velocidade e SEO básico'],prazo:'1 a 2 semanas',preco:'Sob consulta',top:1},
+  {n:'Edição de vídeo',itens:['Cortes com ritmo e impacto','Legendas, efeitos e trilha','Correção de cor','1 revisão inclusa'],prazo:'2 a 4 dias',preco:'Sob consulta'}]
+};
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</body>
+<script src="script.js"></script>
+</html>
